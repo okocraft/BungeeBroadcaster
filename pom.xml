@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.okocraft.bungeebroadcaster</groupId>
+    <artifactId>bungeebroadcaster</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>BungeeBroadcaster</name>
+    <url>https://github.com/SiroPlugins/BungeeBroadcaster</url>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License, Version 2.0</name>
+            <url>https://www.gnu.org/licenses/gpl-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/SiroPlugins/BungeeBroadcaster/issues</url>
+    </issueManagement>
+
+    <properties>
+        <project.charset>UTF-8</project.charset>
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>${project.charset}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${project.charset}</project.reporting.outputEncoding>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>bungeecord-repo</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </repository>
+        <repository>
+            <id>bintray-siroplugins-maven-repo</id>
+            <url>https://dl.bintray.com/siroplugins/maven-repo</url>
+        </repository>
+    </repositories>
+    <dependencies>
+        <!--BungeeCord API-->
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
+            <version>1.15-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--Siro Library-->
+        <dependency>
+            <groupId>com.github.siroshun09</groupId>
+            <artifactId>sirolibrary</artifactId>
+            <version>1.8.0</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>src/main/resources/</directory>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <target>${java.version}</target>
+                    <source>${java.version}</source>
+                    <encoding>${project.charset}</encoding>
+                    <useIncrementalCompilation>false</useIncrementalCompilation>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <finalName>${project.name}-${project.version}</finalName>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

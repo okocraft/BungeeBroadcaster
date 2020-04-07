@@ -1,0 +1,5 @@
+main: net.okocraft.bungeebroadcaster.BungeeBroadcaster
+author: Siroshun09
+version: ${project.version}
+name: BungeeBroadcaster
+depends: [SiroLibrary]
